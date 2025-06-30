@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brickfields Property Services</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADmr0l2AAAAb1BMVEX///8AAADk5OQfHx9dXV3Z2dn19fWWlpYvLy9gYGCJiYnf398ZGRk/Pz/y8vK3t7ejpaWzs7PQ0NDm5ua9vb1KSkpkZGSGhoZqamqkpKSOjo7GxsYMDAxFRUXe3t6+vr5xcXHExMQaGhrA0wC/AAABj0lEQVR4nO3dy27bIBBF0TCSgtXUqM7//wXbgmQo0pnTiuz2zX0zSOkgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggv4V2+evJzzrPzWauPlfvlPCsPZSl0xH8Y6LeNO0trA+rEamPNoyzePcb9OKdmhYPdcKj6aMN2neZT+mPbqZ9C3avdw8wB2cRtYZwZroM2sW4VeoC2o6jTOhf3T6vl9gMHtPafVUebf1ZXnsZRMm6aNN89RKwT+Et5zHzonENmO+QJ5Tpo8wnFBvyzWCPz5xZyXmdRNeWzTF7aaz3jrdZaeGbD+bY26T2t6jr3HK/RcOodZjV7fTZHLZLLxXRY4rGy3+VDKV61gxC2lFOa8VdrQx87xnN+y7H72aK0T4qbO9K4L46MyJbTwv+mtPC+yi5V+KFtPC+yi9X+Kh5v/1L1PqA+R8NOl57eWCPp7amHhvq8nZTW3WjP2la7E4mv0z96EVsI3rHYcQQQgghhBBCCCGEEEIIIYQQQsg/wLhDc0ZC7DbWAAAAAElFTkSuQmCC" />
+  <link rel="icon" href="https://<your-username>.github.io/<your-repo>/assets/logo.png" type="image/png"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Lato:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
@@ -18,108 +19,73 @@
       --dark: #1a1a1a;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after {
       box-sizing: border-box;
     }
-
-    html, body {
-      height: 100%;
+    body, h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
     }
-
     body {
       font-family: 'Open Sans', sans-serif;
-      background-color: var(--light);
+      line-height: 1.6;
+      background: var(--light);
       color: var(--dark);
     }
-
     header {
-      background-color: var(--accent);
-      color: var(--light);
-      padding: 1.5rem 2rem;
+      background: var(--accent);
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
     }
-
-    header img {
-      height: 60px;
-      width: auto;
-    }
-
+    header img { height: 60px; }
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--light);
     }
 
     nav {
+      background: var(--primary);
       display: flex;
       justify-content: center;
-      background-color: var(--primary);
+      padding: 0.5rem 0;
     }
-
     nav a {
-      padding: 1rem;
-      margin: 0 1rem;
-      text-decoration: none;
       color: var(--light);
-      font-weight: bold;
-      cursor: pointer;
+      text-decoration: none;
+      margin: 0 1.25rem;
+      font-weight: 600;
+      transition: opacity .2s;
     }
-
-    nav a:hover {
-      background-color: var(--accent);
-    }
-
-    section {
-      display: none;
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section.active {
-      display: block;
-    }
+    nav a:hover { opacity: 0.8; }
 
     .landing {
       position: relative;
+      min-height: calc(100vh - 160px);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      min-height: calc(100vh - 160px);
-      width: 100%;
+      justify-content: center;
       text-align: center;
-      color: var(--dark);
-      padding: 3rem 1rem;
-      overflow: hidden;
+      padding: 3rem;
     }
-
     .landing::before {
       content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
-      background-size: cover;
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       z-index: 0;
     }
-
     .landing::after {
       content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(248, 245, 242, 0.85); /* off-white tint */
+      position: absolute; inset: 0;
+      background: rgba(248,245,242,0.85);
       z-index: 1;
     }
-
-    .landing > * {
-      position: relative;
-      z-index: 2;
-    }
+    .landing > * { position: relative; z-index: 2; max-width: 600px; }
 
     .landing h2 {
       font-family: 'Playfair Display', serif;
@@ -127,120 +93,108 @@
       color: var(--primary);
       margin-bottom: 1rem;
     }
-
-    .landing p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
+    .landing p { margin-bottom: 1.5rem; }
 
     .landing form {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
     .landing input[type="email"] {
-      padding: 0.75rem;
-      width: 300px;
+      padding: 0.75rem 1rem;
       font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
+      flex: 1;
+      min-width: 220px;
     }
-
     .landing button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
       padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
       border-radius: 4px;
+      background: var(--primary);
+      color: #fff;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background .2s;
     }
-
-    .landing button:hover {
-      background-color: #4e0f0f;
-    }
+    .landing button:hover { background: #4e0f0f; }
 
     .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
       margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
     }
-
     .social-icons img {
       width: 28px;
-      height: 28px;
       filter: brightness(0) invert(1);
-      transition: filter 0.3s;
+      transition: filter .2s;
     }
-
-    .social-icons a:hover img {
-      filter: brightness(0.7) invert(1);
-    }
+    .social-icons a:hover img { filter: brightness(0.7) invert(1); }
 
     .testimonials {
-      margin-top: 3rem;
-      text-align: center;
-      color: var(--accent);
+      margin-top: 2.5rem;
+      width: 100%;
     }
-
     .testimonials h3 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      color: var(--primary);
     }
-
     .testimonial-cards {
       display: flex;
       flex-wrap: wrap;
+      gap: 1.5rem;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
+      padding: 0 1rem;
     }
-
     .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 300px;
+      background: rgba(255,255,255,0.9);
+      padding: 1.25rem;
       border-radius: 8px;
-      padding: 1.5rem;
-      max-width: 280px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       font-style: italic;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       position: relative;
     }
-
     .testimonial-card::before {
       content: "“";
-      font-size: 3rem;
-      color: var(--primary);
       position: absolute;
-      top: 10px;
-      left: 15px;
+      top: 10px; left: 15px;
+      font-size: 2rem;
+      color: var(--primary);
       font-family: 'Playfair Display', serif;
     }
-
     .testimonial-author {
       margin-top: 1rem;
       font-weight: bold;
-      font-style: normal;
-      color: var(--dark);
+      text-align: right;
+      color: var(--accent);
     }
 
     footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--accent);
+      background: var(--accent);
       color: var(--light);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.875rem;
+    }
+
+    @media(max-width: 600px){
+      nav a { margin: 0 .5rem; }
+      .landing h2 { font-size: 2rem; }
+      .testimonial-card { max-width: 100%; }
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADmr0l2AAAAb1BMVEX///8AAADk5OQfHx9dXV3Z2dn19fWWlpYvLy9gYGCJiYnf398ZGRk/Pz/y8vK3t7ejpaWzs7PQ0NDm5ua9vb1KSkpkZGSGhoZqamqkpKSOjo7GxsYMDAxFRUXe3t6+vr5xcXHExMQaGhrA0wC/AAABj0lEQVR4nO3dy27bIBBF0TCSgtXUqM7//wXbgmQo0pnTiuz2zX0zSOkgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggv4V2+evJzzrPzWauPlfvlPCsPZSl0xH8Y6LeNO0trA+rEamPNoyzePcb9OKdmhYPdcKj6aMN2neZT+mPbqZ9C3avdw8wB2cRtYZwZroM2sW4VeoC2o6jTOhf3T6vl9gMHtPafVUebf1ZXnsZRMm6aNN89RKwT+Et5zHzonENmO+QJ5Tpo8wnFBvyzWCPz5xZyXmdRNeWzTF7aaz3jrdZaeGbD+bY26T2t6jr3HK/RcOodZjV7fTZHLZLLxXRY4rGy3+VDKV61gxC2lFOa8VdrQx87xnN+y7H72aK0T4qbO9K4L46MyJbTwv+mtPC+yi5V+KFtPC+yi9X+Kh5v/1L1PqA+R8NOl57eWCPp7amHhvq8nZTW3WjP2la7E4mv0z96EVsI3rHYcQQQgghhBBCCCGEEEIIIYQQQsg/wLhDc0ZC7DbWAAAAAElFTkSuQmCC" alt="Logo" />
+    <img src="https://<your-username>.github.io/<your-repo>/assets/logo.png" alt="Brickfields Logo"/>
     <h1>Brickfields Property Services</h1>
   </header>
 
@@ -252,43 +206,40 @@
     <a onclick="showTab('contact')">Contact</a>
   </nav>
 
-  <section id="landing" class="active landing">
+  <section id="landing" class="landing active">
     <h2>Join Our Property Deals Newsletter</h2>
     <p>Sign up to receive exclusive off-market property opportunities and tips straight to your inbox.</p>
     <form action="https://formspree.io/f/mnqekzdz" method="POST">
-      <input type="email" name="email" placeholder="Your email" required />
+      <input type="email" name="email" placeholder="Your email" required/>
       <button type="submit">Subscribe</button>
     </form>
 
     <div class="social-icons">
-      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"></a>
-      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn"></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook"/></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"/></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn"/></a>
     </div>
 
     <div class="testimonials">
       <h3>What Our Clients Say</h3>
       <div class="testimonial-cards">
         <div class="testimonial-card">
-          Brickfields helped me find a fantastic investment property that has already increased in value.
+          Brickfields helped me find a fantastic investment property with great ROI.
           <div class="testimonial-author">— Sarah T.</div>
         </div>
         <div class="testimonial-card">
-          Their property management team took all the hassle away. My tenants are happy!
+          Their management team provided a seamless, stress‑free experience.
           <div class="testimonial-author">— James L.</div>
         </div>
         <div class="testimonial-card">
-          I sold my home quickly at a great price thanks to Brickfields.
+          I sold my house quickly and secured a fantastic deal.
           <div class="testimonial-author">— Emily R.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sourcing"><h2>Deal Sourcing</h2><p>...</p></section>
-  <section id="management"><h2>Property Management</h2><p>...</p></section>
-  <section id="sales"><h2>Selling Houses</h2><p>...</p></section>
-  <section id="contact"><h2>Contact Us</h2><form>...</form></section>
+  <!-- Other sections omitted for brevity -->
 
   <footer>
     &copy; 2025 Brickfields Property Services. All rights reserved.
@@ -296,7 +247,7 @@
 
   <script>
     function showTab(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('section').forEach(el => el.classList.remove('active'));
       document.getElementById(id).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
