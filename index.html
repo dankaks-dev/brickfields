@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brickfields Property Services</title>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/1e3a8a/cottage.png" type="image/png">
+  <style>
+    :root {
+      --primary: #1e3a8a; /* Blue */
+      --accent: #facc15;  /* Yellow */
+      --light: #f9fafb;
+      --dark: #111827;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--accent);
+    }
+
+    nav a {
+      padding: 1rem;
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #143080;
+    }
+
+    .landing {
+      background-color: var(--accent);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .landing input[type="email"] {
+      width: 300px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .social-icons a img {
+      width: 24px;
+      height: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--light);
+      color: var(--dark);
+      font-size: 0.875rem;
+    }
+  </style>
+  <script async defer data-domain="yourdomain.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Brickfields Property Services</h1>
+    <p>Your trusted partner in deal sourcing, property management, and house sales</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showTab('landing')">Home</a>
+    <a href="#" onclick="showTab('sourcing')">Deal Sourcing</a>
+    <a href="#" onclick="showTab('management')">Property Management</a>
+    <a href="#" onclick="showTab('sales')">Selling Houses</a>
+    <a href="#" onclick="showTab('contact')">Contact</a>
+  </nav>
+
+  <section id="landing" class="active landing">
+    <h2>Join Our Property Deals Newsletter</h2>
+    <p>Sign up to receive exclusive off-market property opportunities and tips straight to your inbox.</p>
+    <form action="https://formspree.io/f/mnqekzdz" method="POST">
+      <input type="email" name="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/facebook.png" alt="Facebook"></a>
+      <a href="https://instagram.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/instagram-new.png" alt="Instagram"></a>
+      <a href="https://linkedin.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/linkedin.png" alt="LinkedIn"></a>
+    </div>
+  </section>
+
+  <section id="sourcing">
+    <h2>Deal Sourcing</h2>
+    <p>We connect investors with below-market-value and high-yield property opportunities across the UK. Our team sources vetted, ready-to-go deals to help you maximise ROI.</p>
+  </section>
+
+  <section id="management">
+    <h2>Property Management</h2>
+    <p>Full-service property management designed for hands-off landlords. From tenant sourcing to maintenance and rent collection, we handle it all with professionalism and care.</p>
+  </section>
+
+  <section id="sales">
+    <h2>Selling Houses</h2>
+    <p>Whether you're a homeowner or investor, we offer effective strategies to sell your property quickly and at the best price. Let us guide you from listing to completion.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mnqekzdz" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Brickfields Property Services. All rights reserved.<br>
+    <a href="https://plausible.io/" target="_blank">Analytics by Plausible</a>
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
