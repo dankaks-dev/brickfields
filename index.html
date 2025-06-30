@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brickfields Property Services</title>
-  <!-- Favicon -->
-  <link rel="icon" href="https://i.imgur.com/aqtkzMo.png" type="image/png" />
+  
+  <!-- Favicon (your uploaded logo) -->
+  <link rel="icon" href="https://i.imgur.com/E2qMG0p.png" type="image/png" />
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --primary: #b01729;   /* Updated red to match logo */
-      --accent: #0a0a0a;    /* Clean black */
-      --light: #f8f5f2;     /* Off-white */
+      --primary: #6f1d1b; /* Refined red from your logo */
+      --accent: #0a0a0a;  /* Rich black */
+      --light: #f8f5f2;   /* Off white */
       --dark: #1a1a1a;
     }
 
     body {
       margin: 0;
-      font-family: 'Lato', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       background-color: var(--light);
       color: var(--dark);
     }
@@ -35,7 +38,7 @@
     }
 
     header img {
-      height: 56px;
+      height: 60px;
       width: auto;
     }
 
@@ -92,7 +95,7 @@
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-family: 'Lato', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 1rem;
     }
 
@@ -109,25 +112,31 @@
     }
 
     button:hover {
-      background-color: #8a1221;
+      background-color: #4e0f0f;
     }
 
     .landing {
       background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
-      color: var(--dark);
-      padding: 4rem 2rem 6rem;
+      background-repeat: no-repeat;
+      min-height: calc(100vh - 160px);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      border-radius: 8px;
-      background-color: rgba(248, 245, 242, 0.75); /* Off-white tint */
-      box-shadow: inset 0 0 0 1000px rgba(248, 245, 242, 0.75);
+      padding: 2rem;
+      box-sizing: border-box;
+      box-shadow: inset 0 0 0 1000px rgba(248, 245, 242, 0.85); /* off-white overlay */
     }
 
     .landing h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      color: var(--primary);
     }
 
     .landing p {
@@ -169,10 +178,9 @@
       filter: brightness(0.7) invert(1);
     }
 
-    /* Testimonials */
     .testimonials {
       width: 100%;
-      padding: 3rem 1rem;
+      padding: 3rem 2rem;
       background-color: var(--light);
       text-align: center;
       box-sizing: border-box;
@@ -190,12 +198,10 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .testimonial-card {
-      background: white;
+      background: var(--light);
       box-shadow: 0 4px 10px rgba(0,0,0,0.07);
       border-radius: 8px;
       padding: 1.5rem;
@@ -229,12 +235,13 @@
       font-size: 0.875rem;
     }
   </style>
+
   <script async defer data-domain="yourdomain.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
+
   <header>
-    <!-- Updated Logo -->
-    <img src="https://i.imgur.com/gDIkqHo.png" alt="Brickfields Property Services Logo" />
+    <img src="https://i.imgur.com/E2qMG0p.png" alt="Brickfields Property Services Logo" />
     <h1>Brickfields Property Services</h1>
   </header>
 
@@ -266,7 +273,6 @@
       </a>
     </div>
 
-    <!-- Testimonials Section -->
     <div class="testimonials">
       <h3>What Our Clients Say</h3>
       <div class="testimonial-cards">
