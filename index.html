@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brickfields Property Services</title>
 
-  <!-- ✅ Favicon using embedded base64 -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADmr0l2AAAAb1BMVEX///8AAADk5OQfHx9dXV3Z2dn19fWWlpYvLy9gYGCJiYnf398ZGRk/Pz/y8vK3t7ejpaWzs7PQ0NDm5ua9vb1KSkpkZGSGhoZqamqkpKSOjo7GxsYMDAxFRUXe3t6+vr5xcXHExMQaGhrA0wC/AAABj0lEQVR4nO3dy27bIBBF0TCSgtXUqM7//wXbgmQo0pnTiuz2zX0zSOkgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggv4V2+evJzzrPzWauPlfvlPCsPZSl0xH8Y6LeNO0trA+rEamPNoyzePcb9OKdmhYPdcKj6aMN2neZT+mPbqZ9C3avdw8wB2cRtYZwZroM2sW4VeoC2o6jTOhf3T6vl9gMHtPafVUebf1ZXnsZRMm6aNN89RKwT+Et5zHzonENmO+QJ5Tpo8wnFBvyzWCPz5xZyXmdRNeWzTF7aaz3jrdZaeGbD+bY26T2t6jr3HK/RcOodZjV7fTZHLZLLxXRY4rGy3+VDKV61gxC2lFOa8VdrQx87xnN+y7H72aK0T4qbO9K4L46MyJbTwv+mtPC+yi5V+KFtPC+yi9X+Kh5v/1L1PqA+R8NOl57eWCPp7amHhvq8nZTW3WjP2la7E4mv0z96EVsI3rHYcQQQgghhBBCCCGEEEIIIYQQQsg/wLhDc0ZC7DbWAAAAAElFTkSuQmCC" />
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
 
   <style>
@@ -23,6 +22,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
     }
 
     body {
@@ -83,16 +86,39 @@
     }
 
     .landing {
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-      background-size: cover;
-      min-height: calc(100vh - 160px);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: calc(100vh - 160px);
+      width: 100%;
       text-align: center;
       color: var(--dark);
       padding: 3rem 1rem;
+      overflow: hidden;
+    }
+
+    .landing::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+      background-size: cover;
+      z-index: 0;
+    }
+
+    .landing::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(248, 245, 242, 0.85); /* off-white tint */
+      z-index: 1;
+    }
+
+    .landing > * {
+      position: relative;
+      z-index: 2;
     }
 
     .landing h2 {
@@ -177,7 +203,7 @@
     }
 
     .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 8px;
       padding: 1.5rem;
       max-width: 280px;
@@ -210,10 +236,9 @@
       color: var(--light);
     }
   </style>
-
 </head>
-<body>
 
+<body>
   <header>
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADmr0l2AAAAb1BMVEX///8AAADk5OQfHx9dXV3Z2dn19fWWlpYvLy9gYGCJiYnf398ZGRk/Pz/y8vK3t7ejpaWzs7PQ0NDm5ua9vb1KSkpkZGSGhoZqamqkpKSOjo7GxsYMDAxFRUXe3t6+vr5xcXHExMQaGhrA0wC/AAABj0lEQVR4nO3dy27bIBBF0TCSgtXUqM7//wXbgmQo0pnTiuz2zX0zSOkgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggv4V2+evJzzrPzWauPlfvlPCsPZSl0xH8Y6LeNO0trA+rEamPNoyzePcb9OKdmhYPdcKj6aMN2neZT+mPbqZ9C3avdw8wB2cRtYZwZroM2sW4VeoC2o6jTOhf3T6vl9gMHtPafVUebf1ZXnsZRMm6aNN89RKwT+Et5zHzonENmO+QJ5Tpo8wnFBvyzWCPz5xZyXmdRNeWzTF7aaz3jrdZaeGbD+bY26T2t6jr3HK/RcOodZjV7fTZHLZLLxXRY4rGy3+VDKV61gxC2lFOa8VdrQx87xnN+y7H72aK0T4qbO9K4L46MyJbTwv+mtPC+yi5V+KFtPC+yi9X+Kh5v/1L1PqA+R8NOl57eWCPp7amHhvq8nZTW3WjP2la7E4mv0z96EVsI3rHYcQQQgghhBBCCCGEEEIIIYQQQsg/wLhDc0ZC7DbWAAAAAElFTkSuQmCC" alt="Logo" />
     <h1>Brickfields Property Services</h1>
