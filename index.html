@@ -126,4 +126,155 @@
     .landing button {
       background-color: var(--primary);
       color: white;
-      b
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .landing button:hover {
+      background-color: #4e0f0f;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s;
+    }
+
+    .social-icons a:hover img {
+      filter: brightness(0.7) invert(1);
+    }
+
+    .testimonials {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .testimonials h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      padding: 1.5rem;
+      max-width: 280px;
+      font-style: italic;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      font-size: 3rem;
+      color: var(--primary);
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-style: normal;
+      color: var(--dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--accent);
+      color: var(--light);
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADmr0l2AAAAb1BMVEX///8AAADk5OQfHx9dXV3Z2dn19fWWlpYvLy9gYGCJiYnf398ZGRk/Pz/y8vK3t7ejpaWzs7PQ0NDm5ua9vb1KSkpkZGSGhoZqamqkpKSOjo7GxsYMDAxFRUXe3t6+vr5xcXHExMQaGhrA0wC/AAABj0lEQVR4nO3dy27bIBBF0TCSgtXUqM7//wXbgmQo0pnTiuz2zX0zSOkgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggv4V2+evJzzrPzWauPlfvlPCsPZSl0xH8Y6LeNO0trA+rEamPNoyzePcb9OKdmhYPdcKj6aMN2neZT+mPbqZ9C3avdw8wB2cRtYZwZroM2sW4VeoC2o6jTOhf3T6vl9gMHtPafVUebf1ZXnsZRMm6aNN89RKwT+Et5zHzonENmO+QJ5Tpo8wnFBvyzWCPz5xZyXmdRNeWzTF7aaz3jrdZaeGbD+bY26T2t6jr3HK/RcOodZjV7fTZHLZLLxXRY4rGy3+VDKV61gxC2lFOa8VdrQx87xnN+y7H72aK0T4qbO9K4L46MyJbTwv+mtPC+yi5V+KFtPC+yi9X+Kh5v/1L1PqA+R8NOl57eWCPp7amHhvq8nZTW3WjP2la7E4mv0z96EVsI3rHYcQQQgghhBBCCCGEEEIIIYQQQsg/wLhDc0ZC7DbWAAAAAElFTkSuQmCC" alt="Logo" />
+    <h1>Brickfields Property Services</h1>
+  </header>
+
+  <nav>
+    <a onclick="showTab('landing')">Home</a>
+    <a onclick="showTab('sourcing')">Deal Sourcing</a>
+    <a onclick="showTab('management')">Property Management</a>
+    <a onclick="showTab('sales')">Selling Houses</a>
+    <a onclick="showTab('contact')">Contact</a>
+  </nav>
+
+  <section id="landing" class="active landing">
+    <h2>Join Our Property Deals Newsletter</h2>
+    <p>Sign up to receive exclusive off-market property opportunities and tips straight to your inbox.</p>
+    <form action="https://formspree.io/f/mnqekzdz" method="POST">
+      <input type="email" name="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <div class="social-icons">
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn"></a>
+    </div>
+
+    <div class="testimonials">
+      <h3>What Our Clients Say</h3>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          Brickfields helped me find a fantastic investment property that has already increased in value.
+          <div class="testimonial-author">— Sarah T.</div>
+        </div>
+        <div class="testimonial-card">
+          Their property management team took all the hassle away. My tenants are happy!
+          <div class="testimonial-author">— James L.</div>
+        </div>
+        <div class="testimonial-card">
+          I sold my home quickly at a great price thanks to Brickfields.
+          <div class="testimonial-author">— Emily R.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sourcing"><h2>Deal Sourcing</h2><p>...</p></section>
+  <section id="management"><h2>Property Management</h2><p>...</p></section>
+  <section id="sales"><h2>Selling Houses</h2><p>...</p></section>
+  <section id="contact"><h2>Contact Us</h2><form>...</form></section>
+
+  <footer>
+    &copy; 2025 Brickfields Property Services. All rights reserved.
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
