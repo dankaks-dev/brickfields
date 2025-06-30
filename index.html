@@ -4,54 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brickfields Property Services</title>
-  <link rel="icon" href="https://img.icons8.com/ios-filled/50/1e3a8a/cottage.png" type="image/png">
+  <!-- Premium Favicon -->
+  <link rel="icon" href="https://i.imgur.com/aqtkzMo.png" type="image/png" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #1e3a8a; /* Blue */
-      --accent: #facc15;  /* Yellow */
-      --light: #f9fafb;
-      --dark: #111827;
+      --primary: #8B0000; /* Deep Regal Red */
+      --accent: #0a0a0a;  /* Nice Black */
+      --light: #f8f5f2;   /* Off White */
+      --dark: #1a1a1a;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Open Sans', sans-serif;
       background-color: var(--light);
       color: var(--dark);
     }
 
     header {
-      background-color: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
+      background-color: var(--accent);
+      color: var(--light);
+      padding: 1.5rem 2rem;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Logo styling */
+    header img {
+      height: 48px;
+      width: auto;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 500;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background-color: var(--accent);
+      background-color: var(--primary);
     }
 
     nav a {
       padding: 1rem;
       margin: 0 1rem;
       text-decoration: none;
-      color: var(--dark);
-      font-weight: bold;
+      color: var(--light);
+      font-weight: 600;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     nav a:hover {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--accent);
     }
 
     section {
       display: none;
       padding: 2rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     section.active {
@@ -62,14 +85,16 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 400px;
+      max-width: 500px;
       margin: 2rem auto;
     }
 
     input, textarea {
       padding: 0.75rem;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
     }
 
     button {
@@ -78,40 +103,126 @@
       border: none;
       padding: 0.75rem;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s;
+      font-size: 1rem;
     }
 
     button:hover {
-      background-color: #143080;
+      background-color: #660000;
     }
 
     .landing {
-      background-color: var(--accent);
-      padding: 2rem;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--light);
+      padding: 4rem 2rem 6rem;
       text-align: center;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1000px rgba(139, 0, 0, 0.6);
+    }
+
+    .landing h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .landing p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .landing form {
+      max-width: 400px;
+      margin: 0 auto 3rem;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
     }
 
     .landing input[type="email"] {
-      width: 300px;
+      flex: 1;
+      font-size: 1rem;
     }
 
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
+      gap: 1.5rem;
+      margin: 1rem 0 0;
     }
 
     .social-icons a img {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s;
+    }
+
+    .social-icons a:hover img {
+      filter: brightness(0.7) invert(1);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      text-align: center;
+      color: var(--dark);
+    }
+
+    .testimonials h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--light);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      border-radius: 8px;
+      padding: 1.5rem;
+      max-width: 280px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      font-size: 3rem;
+      color: var(--primary);
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--accent);
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: var(--light);
-      color: var(--dark);
+      padding: 2rem;
+      background-color: var(--accent);
+      color: var(--light);
       font-size: 0.875rem;
     }
   </style>
@@ -119,16 +230,17 @@
 </head>
 <body>
   <header>
+    <!-- Premium Logo -->
+    <img src="https://i.imgur.com/O4pJXae.png" alt="Brickfields Property Services Logo" />
     <h1>Brickfields Property Services</h1>
-    <p>Your trusted partner in deal sourcing, property management, and house sales</p>
   </header>
 
   <nav>
-    <a href="#" onclick="showTab('landing')">Home</a>
-    <a href="#" onclick="showTab('sourcing')">Deal Sourcing</a>
-    <a href="#" onclick="showTab('management')">Property Management</a>
-    <a href="#" onclick="showTab('sales')">Selling Houses</a>
-    <a href="#" onclick="showTab('contact')">Contact</a>
+    <a onclick="showTab('landing')">Home</a>
+    <a onclick="showTab('sourcing')">Deal Sourcing</a>
+    <a onclick="showTab('management')">Property Management</a>
+    <a onclick="showTab('sales')">Selling Houses</a>
+    <a onclick="showTab('contact')">Contact</a>
   </nav>
 
   <section id="landing" class="active landing">
@@ -138,10 +250,36 @@
       <input type="email" name="email" placeholder="Your email" required />
       <button type="submit">Subscribe</button>
     </form>
+
     <div class="social-icons">
-      <a href="https://facebook.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/facebook.png" alt="Facebook"></a>
-      <a href="https://instagram.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/instagram-new.png" alt="Instagram"></a>
-      <a href="https://linkedin.com" target="_blank"><img src="https://img.icons8.com/ios-filled/50/1e3a8a/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" />
+      </a>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials">
+      <h3>What Our Clients Say</h3>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          “Brickfields helped me find a fantastic investment property that has already increased in value. Professional and reliable service.”
+          <div class="testimonial-author">— Sarah T., Investor</div>
+        </div>
+        <div class="testimonial-card">
+          “Their property management team took all the hassle away. My tenants are happy and my property is well cared for.”
+          <div class="testimonial-author">— James L., Landlord</div>
+        </div>
+        <div class="testimonial-card">
+          “I sold my home quickly at a great price thanks to Brickfields. Highly recommend their expertise and market knowledge.”
+          <div class="testimonial-author">— Emily R., Homeowner</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -171,14 +309,15 @@
   </section>
 
   <footer>
-    &copy; 2025 Brickfields Property Services. All rights reserved.<br>
-    <a href="https://plausible.io/" target="_blank">Analytics by Plausible</a>
+    &copy; 2025 Brickfields Property Services. All rights reserved.<br />
+    <a href="https://plausible.io/" target="_blank" style="color: #ccc; text-decoration: underline;">Analytics by Plausible</a>
   </footer>
 
   <script>
     function showTab(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('section').forEach((sec) => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
