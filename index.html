@@ -37,10 +37,21 @@
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1rem;
+      justify-content: space-between;
     }
-    header img { height: 60px; }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+    }
+    header img { 
+      height: 60px;
+      transition: transform 0.3s;
+    }
+    header img:hover {
+      transform: scale(1.05);
+    }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 1.75rem;
@@ -60,10 +71,11 @@
       margin: 0 1.25rem;
       font-weight: 600;
       transition: opacity .2s;
+      cursor: pointer;
     }
     nav a:hover { opacity: 0.8; }
 
-    .landing {
+    .tab-content {
       position: relative;
       min-height: calc(100vh - 160px);
       display: flex;
@@ -73,35 +85,53 @@
       text-align: center;
       padding: 3rem;
     }
-    .landing::before {
+    .tab-content::before {
       content: "";
-      position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: absolute; 
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       z-index: 0;
     }
-    .landing::after {
+    .tab-content::after {
       content: "";
-      position: absolute; inset: 0;
+      position: absolute; 
+      inset: 0;
       background: rgba(248,245,242,0.85);
       z-index: 1;
     }
-    .landing > * { position: relative; z-index: 2; max-width: 600px; }
+    .tab-content > * { 
+      position: relative; 
+      z-index: 2; 
+      max-width: 800px;
+    }
 
-    .landing h2 {
+    .tab-content h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    .landing p { margin-bottom: 1.5rem; }
+    .tab-content p { 
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .tab-content ul {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    .tab-content li {
+      margin-bottom: 0.5rem;
+    }
 
-    .landing form {
+    .tab-content form {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .landing input[type="email"] {
+    .tab-content input[type="email"] {
       padding: 0.75rem 1rem;
       font-size: 1rem;
       border: 1px solid #ccc;
@@ -109,7 +139,7 @@
       flex: 1;
       min-width: 220px;
     }
-    .landing button {
+    .tab-content button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       border: none;
@@ -120,7 +150,7 @@
       cursor: pointer;
       transition: background .2s;
     }
-    .landing button:hover { background: #4e0f0f; }
+    .tab-content button:hover { background: #4e0f0f; }
 
     .social-icons {
       margin-top: 2rem;
@@ -176,6 +206,43 @@
       color: var(--accent);
     }
 
+    .service-card {
+      background: rgba(255,255,255,0.9);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.9);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .contact-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
     footer {
       background: var(--accent);
       color: var(--light);
@@ -184,29 +251,40 @@
       font-size: 0.875rem;
     }
 
+    .hidden {
+      display: none;
+    }
+
     @media(max-width: 600px){
       nav a { margin: 0 .5rem; }
-      .landing h2 { font-size: 2rem; }
+      .tab-content h2 { font-size: 2rem; }
       .testimonial-card { max-width: 100%; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.png" alt="Brickfields Logo"/>
-    <h1>Brickfields Property Services</h1>
+    <div class="logo-container" onclick="showTab('landing')">
+      <img src="logo.png" alt="Brickfields Logo"/>
+      <h1>Brickfields Property Services</h1>
+    </div>
   </header>
 
   <nav>
     <a onclick="showTab('landing')">Home</a>
-    <a onclick="showTab('sourcing')">Deal Sourcing</a>
-    <a onclick="showTab('management')">Property Management</a>
-    <a onclick="showTab('sales')">Selling Houses</a>
+    <a onclick="showTab('investing')">Investing</a>
+    <a onclick="showTab('lettings')">Lettings & Management</a>
+    <a onclick="showTab('sales')">Sales</a>
     <a onclick="showTab('contact')">Contact</a>
   </nav>
 
-  <section id="landing" class="landing active">
+  <!-- Home Tab -->
+  <section id="landing" class="tab-content active">
     <h2>Join Our Property Deals Newsletter</h2>
     <p>Sign up to receive exclusive off-market property opportunities and tips straight to your inbox.</p>
     <form action="https://formspree.io/f/mnqekzdz" method="POST">
@@ -239,7 +317,90 @@
     </div>
   </section>
 
-  <!-- Other sections omitted for brevity -->
+  <!-- Investing Tab -->
+  <section id="investing" class="tab-content hidden">
+    <h2>Property Investing & Deal Sourcing</h2>
+    <div class="service-card">
+      <h3>What We Offer</h3>
+      <p>Our deal sourcing service provides investors with access to high-quality, off-market property opportunities that deliver strong returns. We specialize in identifying undervalued properties with renovation potential or existing rental income streams.</p>
+      
+      <h3>Example Deal</h3>
+      <p><strong>3-bed terrace in Manchester</strong><br>
+      Purchase Price: £180,000<br>
+      After Refurb Value: £240,000<br>
+      Rental Potential: £950pcm<br>
+      Gross Yield: 6.3%</p>
+      
+      <p>This property requires cosmetic refurbishment but is structurally sound. Located in an up-and-coming area with strong tenant demand and excellent transport links.</p>
+      
+      <h3>Why Choose Brickfields?</h3>
+      <p>With our extensive network of agents, developers, and private sellers, we uncover deals before they hit the open market. Our team thoroughly vets each opportunity, providing detailed analysis and projected returns so you can invest with confidence.</p>
+      
+      <p><strong>Ready to grow your portfolio?</strong> Contact us today to discuss your investment criteria and get access to our latest opportunities.</p>
+      <button onclick="showTab('contact')">Get in Touch</button>
+    </div>
+  </section>
+
+  <!-- Lettings & Management Tab -->
+  <section id="lettings" class="tab-content hidden">
+    <h2>Lettings & Property Management</h2>
+    <div class="service-card">
+      <h3>Our Services</h3>
+      <ul>
+        <li><strong>Tenant Find:</strong> Comprehensive marketing, tenant vetting, and move-in coordination</li>
+        <li><strong>Let Only:</strong> Full tenant placement with tenancy setup</li>
+        <li><strong>Let & Managed:</strong> Ongoing rent collection and light management</li>
+        <li><strong>Fully Managed:</strong> Complete property management including maintenance</li>
+        <li><strong>Rent-to-Rent:</strong> Guaranteed rental income with no landlord responsibilities</li>
+        <li><strong>Guaranteed Rent:</strong> Fixed monthly payments regardless of occupancy</li>
+      </ul>
+      
+      <h3>Stress-Free Property Ownership</h3>
+      <p>At Brickfields, we understand that your property is one of your most valuable assets. Our comprehensive management services ensure your investment is protected while maximizing your returns. From rigorous tenant screening to prompt maintenance coordination, we handle every detail so you don't have to.</p>
+      
+      <p>Our guaranteed rent schemes provide complete peace of mind with fixed monthly payments, void period coverage, and no management headaches. Whether you own a single rental or a large portfolio, we tailor our services to your specific needs.</p>
+      
+      <p><strong>Let us take the stress out of being a landlord.</strong> Contact us today to discuss how we can help.</p>
+      <button onclick="showTab('contact')">Speak to Our Team</button>
+    </div>
+  </section>
+
+  <!-- Sales Tab -->
+  <section id="sales" class="tab-content hidden">
+    <h2>Property Sales</h2>
+    <div class="service-card">
+      <h3>Why Sell With Brickfields?</h3>
+      <p>Whether you're an investor looking to exit a project, a homeowner wanting a quick sale, or a landlord liquidating your portfolio, Brickfields Property Services offers a tailored sales solution to meet your needs.</p>
+      
+      <p>Our extensive network of cash buyers and investors means we can often secure sales faster than traditional estate agents, frequently completing in as little as 2-4 weeks. For sellers requiring maximum exposure, our premium marketing package ensures your property reaches the widest possible audience through both online and offline channels.</p>
+      
+      <p>We provide honest valuations, transparent fees, and dedicated support throughout the entire sales process. Our team has particular expertise in selling tenanted properties and refurbishment projects, helping you achieve the best possible price with minimal hassle.</p>
+      
+      <p><strong>Ready to sell your property?</strong> Get in touch for a free, no-obligation valuation and discover how we can help you achieve a successful sale.</p>
+      <button onclick="showTab('contact')">Request Valuation</button>
+    </div>
+  </section>
+
+  <!-- Contact Tab -->
+  <section id="contact" class="tab-content hidden">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/mnqekzdz" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <select name="service" required>
+          <option value="" disabled selected>Select Service</option>
+          <option value="investing">Investing/Deal Sourcing</option>
+          <option value="lettings">Lettings & Management</option>
+          <option value="sales">Sales</option>
+          <option value="general">General Inquiry</option>
+        </select>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
   <footer>
     &copy; 2025 Brickfields Property Services. All rights reserved.
@@ -247,10 +408,37 @@
 
   <script>
     function showTab(id) {
-      document.querySelectorAll('section').forEach(el => el.classList.remove('active'));
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('active');
+      });
+      
+      // Show selected tab content
+      document.getElementById(id).classList.remove('hidden');
       document.getElementById(id).classList.add('active');
+      
+      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Set background images for each tab
+    document.addEventListener('DOMContentLoaded', function() {
+      // Home background
+      document.getElementById('landing').style.backgroundImage = "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80')";
+      
+      // Investing background
+      document.getElementById('investing').style.backgroundImage = "url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1600&q=80')";
+      
+      // Lettings background
+      document.getElementById('lettings').style.backgroundImage = "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80')";
+      
+      // Sales background
+      document.getElementById('sales').style.backgroundImage = "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80')";
+      
+      // Contact background
+      document.getElementById('contact').style.backgroundImage = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')";
+    });
   </script>
 </body>
 </html>
