@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brickfields Property Services</title>
+  <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/aqtkzMo.png" type="image/png" />
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #7b1113; /* Updated red from logo */
-      --accent: #0a0a0a;
-      --light: #f8f5f2;
+      --primary: #b01729;   /* Updated red to match logo */
+      --accent: #0a0a0a;    /* Clean black */
+      --light: #f8f5f2;     /* Off-white */
       --dark: #1a1a1a;
     }
 
@@ -34,7 +35,7 @@
     }
 
     header img {
-      height: 48px;
+      height: 56px;
       width: auto;
     }
 
@@ -56,7 +57,7 @@
       margin: 0 1rem;
       text-decoration: none;
       color: var(--light);
-      font-weight: 700;
+      font-weight: 600;
       transition: background 0.3s;
       cursor: pointer;
     }
@@ -108,7 +109,7 @@
     }
 
     button:hover {
-      background-color: #5e0d10;
+      background-color: #8a1221;
     }
 
     .landing {
@@ -119,7 +120,8 @@
       padding: 4rem 2rem 6rem;
       text-align: center;
       border-radius: 8px;
-      box-shadow: inset 0 0 0 1000px rgba(248, 245, 242, 0.6); /* off-white tint */
+      background-color: rgba(248, 245, 242, 0.75); /* Off-white tint */
+      box-shadow: inset 0 0 0 1000px rgba(248, 245, 242, 0.75);
     }
 
     .landing h2 {
@@ -167,11 +169,13 @@
       filter: brightness(0.7) invert(1);
     }
 
+    /* Testimonials */
     .testimonials {
-      max-width: 900px;
-      margin: 2rem auto 4rem;
+      width: 100%;
+      padding: 3rem 1rem;
+      background-color: var(--light);
       text-align: center;
-      color: var(--dark);
+      box-sizing: border-box;
     }
 
     .testimonials h3 {
@@ -186,10 +190,12 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .testimonial-card {
-      background: var(--light);
+      background: white;
       box-shadow: 0 4px 10px rgba(0,0,0,0.07);
       border-radius: 8px;
       padding: 1.5rem;
@@ -228,7 +234,7 @@
 <body>
   <header>
     <!-- Updated Logo -->
-    <img src="logo.png" alt="Brickfields Property Services Logo" />
+    <img src="https://i.imgur.com/gDIkqHo.png" alt="Brickfields Property Services Logo" />
     <h1>Brickfields Property Services</h1>
   </header>
 
@@ -260,6 +266,7 @@
       </a>
     </div>
 
+    <!-- Testimonials Section -->
     <div class="testimonials">
       <h3>What Our Clients Say</h3>
       <div class="testimonial-cards">
